@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mata do Ćwiczeń – Super Okazja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #ff5a00;
+            padding: 15px;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px #bbb;
+        }
+
+        .product {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product img {
+            width: 350px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .price-box {
+            background: #fff7e6;
+            border: 1px solid #ffd28a;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .price {
+            color: #ff5a00;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .info {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            border-left: 5px solid #ff5a00;
+            padding-left: 10px;
+            color: #333;
+        }
+
+        form {
+            background: #e9ffe9;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #b8e6b8;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            font-size: 16px;
+        }
+
+        button {
+            background: #ff5a00;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #e14f00;
+        }
+
+        .trust-box {
+            background: #eef6ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #c9dfff;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Super Mata do Ćwiczeń – Promocja Dla Każdego!
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="https://i.imgur.com/Mt4QkBQ.jpeg" alt="Mata do ćwiczeń">
+
+        <div class="price-box">
+            <div class="price">39,99 zł</div>
+            <div class="info">✓ Darmowa dostawa<br>✓ Płatność przy odbiorze<br>✓ 30 dni na zwrot</div>
+        </div>
+    </div>
+
+    <h2>Opis produktu</h2>
+    <p>
+        Wysokiej jakości mata do ćwiczeń idealna dla osób w każdym wieku.  
+        Idealna do: rozciągania, ćwiczeń relaksacyjnych, treningu w domu oraz rehabilitacji.  
+        Mata jest antypoślizgowa, miękka i wykonana z trwałej pianki.
+    </p>
+
+    <div class="trust-box">
+        🔒 Gwarancja bezpieczeństwa: nie pobieramy żadnych opłat online – płacisz dopiero przy odbiorze kurierowi.  
+        Szybka wysyłka 24h – produkt wysyłamy z Polski.
+    </div>
+
+    <h2>Złóż Zamówienie</h2>
+
+    <!-- FORMULARZ ZAMÓWIENIA -->
+    <form action="https://formsubmit.co/TWOJ_EMAIL" method="POST">
+        <input type="text" name="Imię i nazwisko" placeholder="Imię i nazwisko" required>
+        <input type="text" name="Adres" placeholder="Adres (ulica, nr domu/mieszkania)" required>
+        <input type="text" name="Kod pocztowy" placeholder="Kod pocztowy" required>
+        <input type="text" name="Miasto" placeholder="Miasto" required>
+        <input type="tel" name="Telefon" placeholder="Telefon" required>
+        <textarea name="Uwagi" placeholder="Uwagi do zamówienia"></textarea>
+
+        <input type="hidden" name="_subject" value="Nowe zamówienie na matę!">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit">Zamawiam za pobraniem</button>
+    </form>
+
+</div>
+
+</body>
+</html>
