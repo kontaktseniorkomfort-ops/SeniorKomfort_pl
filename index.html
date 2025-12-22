@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -107,7 +106,7 @@ body {
     <p class="text-xl">
       Cena: <span class="text-green-300 font-bold text-5xl">99,99 zł</span> <span class="line-through text-gray-400 text-2xl">129,99 zł</span>
     </p>
-    <p class="text-sm text-gray-300 mt-1">Wysyłka za darmo: 🚀 InPost – do domu, płatność przy odbiorze</p>
+    <p class="text-sm text-gray-300 mt-1">Wysyłka za darmo: 🚀 InPost – do domu lub paczkomatu, płatność przy odbiorze</p>
     <p id="promoTimer" class="text-yellow-400 font-bold mt-2 text-lg">Promocja kończy się za: 5d 00:00:00</p>
   </div>
 
@@ -167,19 +166,26 @@ body {
   </div>
 </section>
 
-<!-- OPIS PRODUKTU -->
+<!-- OPIS PRODUKTU ZE ZDJĘCIAMI -->
 <section class="max-w-3xl mx-auto mt-6 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg text-gray-300 space-y-4">
   <div class="text-center">
     <img src="mata1.png" alt="Osoba relaksująca się na macie" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>🌿 Mata akupresyjna jest idealna dla osób w każdym wieku. Pomaga rozluźnić mięśnie, poprawia krążenie i redukuje napięcie pleców oraz karku. Regularne stosowanie wpływa na lepszy sen i codzienne samopoczucie. Zestaw zawiera poduszkę odciążającą szyję, a mata jest łatwa w utrzymaniu i bezpieczna w użyciu. Zalecane 10-20 minut dziennie.</p>
+    <p>🌿 Mata akupresyjna jest idealna dla osób w każdym wieku. Pomaga rozluźnić mięśnie, poprawia krążenie i redukuje napięcie pleców oraz karku. Zawiera poduszkę odciążającą szyję. Zalecane 10–20 minut dziennie.</p>
   </div>
   <div class="text-center">
     <img src="mata2.png" alt="Stopy na macie akupresyjnej" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>💚 Stawianie stóp na macie aktywuje punkty refleksologiczne, poprawiając krążenie i regenerację mięśni. Początkowo może być odczuwalny delikatny ucisk, który po kilku minutach staje się przyjemnym masażem. Mata jest użyteczna rano i wieczorem, bez potrzeby dodatkowych akcesoriów.</p>
+    <p>💚 Stawianie stóp na macie aktywuje punkty refleksologiczne, wspiera krążenie i regenerację mięśni. Początkowo odczuwalny jest lekki ucisk, który staje się przyjemnym masażem.</p>
   </div>
   <div class="text-center">
     <img src="mata3.png" alt="Kolce maty akupresyjnej z bliska" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>🔵 Kolce maty wykonano z bezpiecznego tworzywa ABS, równomiernie stymulują skórę i wspierają uwalnianie endorfin. Mata jest przenośna, łatwa w przechowywaniu i może być używana przez osoby w każdym wieku z wyjątkiem przeciwwskazań medycznych.</p>
+    <p>🔵 Kolce maty wykonano z bezpiecznego tworzywa ABS, równomiernie stymulują skórę i wspierają uwalnianie endorfin. Mata jest przenośna i łatwa w przechowywaniu.</p>
+  </div>
+
+  <!-- GŁÓWNY OPIS PRODUKTU -->
+  <div class="text-center mt-4">
+    <h2 class="text-2xl font-bold mb-2">Opis główny produktu 🌟</h2>
+    <p>Nasza mata akupresyjna z poduszką pomaga rozluźnić mięśnie pleców, karku i nóg, wspiera ukrwienie, zmniejsza napięcie oraz stres. Nie jest odpowiednia dla osób z problemami krążenia, chorobami skóry, ciąży lub innych przeciwwskazań medycznych. Zaleca się stopniowe przyzwyczajanie do maty – 5–20 minut dziennie, najlepiej w pozycji leżącej. Mata powinna być używana na stabilnej powierzchni, bez obuwia i z zachowaniem ostrożności. Regularne stosowanie może poprawić komfort życia, jakość snu i samopoczucie.</p>
+    <p class="text-sm mt-2 text-gray-400">⚠️ Uwaga: Mata akupresyjna nie jest dla każdego. Przed użyciem skonsultuj się z lekarzem w przypadku wątpliwości lub istniejących schorzeń. Producent nie ponosi odpowiedzialności za niewłaściwe użycie produktu.</p>
   </div>
 </section>
 
@@ -198,7 +204,7 @@ body {
     <p class="font-bold">Czy korzystanie boli? 😅</p>
     <p>Początkowo lekko kłuje, potem jest przyjemnie 😌.</p>
     <p class="font-bold">Jak wygląda wysyłka? 📦</p>
-    <p>Wysyłka InPost – do domu, płatność przy odbiorze.</p>
+    <p>Wysyłka InPost – do paczkomatu lub do domu, płatność przy odbiorze.</p>
   </div>
 </section>
 
@@ -221,7 +227,8 @@ body {
       <input name="miejscowosc" required class="p-3 rounded w-full" placeholder="Miejscowość"/>
       <select id="deliverySelect" name="sposob_dostawy" class="p-3 rounded w-full" required>
         <option value="" disabled selected>Wybierz sposób dostawy</option>
-        <option value="inpost">InPost – paczkomat lub do domu</option>
+        <option value="inpost">InPost – paczkomat</option>
+        <option value="home">InPost – do domu</option>
       </select>
       <input type="text" name="nr_paczkomatu" id="paczkomatInput" class="p-3 rounded w-full" placeholder="Numer paczkomatu">
       <textarea name="uwagi" class="p-3 rounded w-full" placeholder="Uwagi do zamówienia"></textarea>
@@ -274,7 +281,6 @@ deliverySelect.addEventListener('change',()=>{ paczkomatInput.style.display=deli
 // TIMER PROMOCJI Z LOCALSTORAGE
 let promoEnd=localStorage.getItem('promoEnd');
 if(!promoEnd){ promoEnd=Date.now()+5*24*60*60*1000; localStorage.setItem('promoEnd', promoEnd); }
-promoEnd=Number(promoEnd);
 const promoTimer=document.getElementById('promoTimer');
 setInterval(()=>{
   const now=new Date();
@@ -289,3 +295,4 @@ setInterval(()=>{
 </script>
 </body>
 </html>
+S
