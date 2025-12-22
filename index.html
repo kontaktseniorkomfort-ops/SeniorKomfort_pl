@@ -50,9 +50,7 @@ body {
   background-color: #16a34a;
   transition: background 0.3s;
 }
-#orderForm button:hover {
-  background-color: #15803d;
-}
+#orderForm button:hover { background-color: #15803d; }
 #paczkomatInput { display: none; }
 
 /* Pasek przesuwający się */
@@ -63,15 +61,20 @@ body {
   white-space: nowrap;
   font-weight: bold;
   padding: 0.5rem 0;
+  position: relative;
 }
 #scrollingBar span {
   display: inline-block;
+  padding-left: 100%;
   animation: scroll 15s linear infinite;
 }
 @keyframes scroll {
   0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-100%); }
 }
+
+/* Opinie */
+.review-hidden { display: none; }
 </style>
 </head>
 
@@ -86,7 +89,8 @@ body {
 <!-- PASEK PRZESUWANY Z EMOTKAMI -->
 <div id="scrollingBar">
   <span>
-    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta! 🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta!
+    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta! 
+    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta!
   </span>
 </div>
 
@@ -125,28 +129,29 @@ body {
       <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Helena 😊</p>
       <p class="text-gray-300">Dostawa błyskawiczna i tylko przy odbiorze – super bezpieczeństwo.</p>
     </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Andrzej 😊</p>
-      <p class="text-gray-300">Dobra jakość, używam codziennie.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Zofia 😄</p>
-      <p class="text-gray-300">Szybka wysyłka, działa jak trzeba.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Wiesław 😊</p>
-      <p class="text-gray-300">Żona też używa – oboje polecamy.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Maria 😊</p>
-      <p class="text-gray-300">Bardzo wygodna mata, pomaga przy bólach pleców.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Krzysztof 😄</p>
-      <p class="text-gray-300">Wysyłka szybka, produkt zgodny z opisem. Polecam!</p>
-    </div>
-    <button id="showMoreBtn" class="w-full mt-4 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold">Pokaż więcej opinii</button>
-    <div id="moreReviews" class="hidden mt-4 space-y-4">
+
+    <!-- ukryte opinie -->
+    <div id="moreReviews" class="space-y-4 review-hidden">
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Andrzej 😊</p>
+        <p class="text-gray-300">Dobra jakość, używam codziennie.</p>
+      </div>
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Zofia 😄</p>
+        <p class="text-gray-300">Szybka wysyłka, działa jak trzeba.</p>
+      </div>
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Wiesław 😊</p>
+        <p class="text-gray-300">Żona też używa – oboje polecamy.</p>
+      </div>
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Maria 😊</p>
+        <p class="text-gray-300">Bardzo wygodna mata, pomaga przy bólach pleców.</p>
+      </div>
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Krzysztof 😄</p>
+        <p class="text-gray-300">Wysyłka szybka, produkt zgodny z opisem. Polecam!</p>
+      </div>
       <div class="bg-gray-700 p-4 rounded-xl">
         <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Aneta 😊</p>
         <p class="text-gray-300">Mata bardzo wygodna, stosuję codziennie przed snem.</p>
@@ -156,6 +161,8 @@ body {
         <p class="text-gray-300">Super produkt, ból pleców znacząco się zmniejszył.</p>
       </div>
     </div>
+
+    <button id="showMoreBtn" class="w-full mt-4 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold">Pokaż więcej opinii</button>
   </div>
 </section>
 
@@ -163,27 +170,22 @@ body {
 <section class="max-w-3xl mx-auto mt-6 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg text-gray-300 space-y-4">
   <div class="text-center">
     <img src="mata1.png" alt="Osoba relaksująca się na macie" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>🌿 Mata akupresyjna jest idealna dla osób w każdym wieku, pomaga w relaksacji mięśni i poprawia krążenie. Regularne stosowanie może zmniejszyć napięcie w plecach oraz karku. Osoba leżąca na macie odczuwa przyjemne ciepło i delikatny ucisk, który stymuluje zakończenia nerwowe. Dzięki temu poprawia się samopoczucie, a codzienny stres zostaje złagodzony. Mata jest wykonana z wytrzymałych materiałów, zapewnia stabilność i bezpieczeństwo. Zastosowanie poduszki w zestawie odciąża szyję, co pozwala na pełny relaks. Nie wymaga użycia leków ani żadnych chemicznych preparatów. Zaleca się stosowanie 10-20 minut dziennie, najlepiej w spokojnym miejscu. Mata może być używana na podłodze lub łóżku, zawsze z zachowaniem ostrożności. 🌟</p>
+    <p>🌿 Mata akupresyjna jest idealna dla osób w każdym wieku, pomaga w relaksacji mięśni i poprawia krążenie...</p>
   </div>
-
   <div class="text-center">
     <img src="mata2.png" alt="Stopy na macie akupresyjnej" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>💚 Stawianie stóp na macie aktywuje punkty refleksologiczne, co korzystnie wpływa na krążenie krwi i poprawia funkcjonowanie organów. Początkowo odczuwalny może być delikatny dyskomfort, który po kilku minutach staje się przyjemnym uczuciem masażu. Mata wspomaga redukcję napięcia mięśniowego w stopach i całym ciele. Dzięki regularnemu używaniu zwiększa elastyczność mięśni i przyspiesza regenerację po wysiłku. Zaleca się stosowanie na boso lub w cienkich skarpetach. Mata jest łatwa w utrzymaniu czystości i nie wymaga specjalnych akcesoriów. Można ją stosować zarówno rano, aby pobudzić ciało, jak i wieczorem dla relaksu. Mata jest bezpieczna, jeśli używana zgodnie z instrukcją. 🚶‍♀️</p>
+    <p>💚 Stawianie stóp na macie aktywuje punkty refleksologiczne...</p>
   </div>
-
   <div class="text-center">
     <img src="mata3.png" alt="Kolce maty akupresyjnej z bliska" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
-    <p>🔵 Kolce maty są wykonane z bezpiecznego tworzywa ABS i zostały zaprojektowane tak, aby stymulować skórę bez ryzyka zranienia. Delikatny nacisk poprawia ukrwienie i sprzyja uwalnianiu endorfin. Mata może być używana przez osoby w każdym wieku, z wyjątkiem przeciwwskazań medycznych takich jak otwarte rany lub choroby skóry. Przy pierwszym użyciu zaleca się krótkie sesje, stopniowo wydłużając czas korzystania. Kolce są rozmieszczone równomiernie, zapewniając równomierną stymulację. Mata jest łatwa w przechowywaniu i można ją zabrać w podróż. Dzięki niej codzienna rutyna staje się przyjemniejsza i relaksująca. Stosowanie maty może wspomóc redukcję stresu i poprawić jakość snu. 🌟</p>
+    <p>🔵 Kolce maty są wykonane z bezpiecznego tworzywa ABS...</p>
   </div>
 </section>
 
 <!-- SEKCJA ZAUFANIA -->
 <section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
   <h2 class="text-2xl font-bold mb-4">Dlaczego warto nam zaufać? 🤝</h2>
-  <p class="text-gray-300">
-    Jesteśmy sprzedawcą działającym w Polsce. Każda paczka jest starannie zabezpieczona, a płatność odbywa się dopiero przy odbiorze. 
-    Email 📧: <strong>kontakt.seniorkomfort@gmail.com</strong>
-  </p>
+  <p class="text-gray-300">Jesteśmy sprzedawcą działającym w Polsce...</p>
 </section>
 
 <!-- FAQ -->
@@ -192,10 +194,8 @@ body {
   <div class="space-y-2 text-gray-300">
     <p class="font-bold">Czy mata pomaga na ból pleców? 💪</p>
     <p>Tak, poprawia ukrwienie i rozluźnia mięśnie 👍.</p>
-
     <p class="font-bold">Czy korzystanie boli? 😅</p>
     <p>Początkowo lekko kłuje, potem jest przyjemnie 😌.</p>
-
     <p class="font-bold">Jak wygląda wysyłka? 📦</p>
     <p>Wysyłka Poczta Polska lub InPost, płatność przy odbiorze.</p>
   </div>
@@ -241,4 +241,51 @@ body {
 
 <script>
 // MODAL
-const modal=document.getElementById('
+const modal=document.getElementById('modalOverlay');
+document.getElementById("buyNowTop").addEventListener('click',()=>modal.classList.remove("hidden"));
+function closeModal(){modal.classList.add("hidden");}
+
+// SLIDER
+const images=["mata z kolcami- produkt.png","rozmiary.png"];
+let currentImage=0;
+const sliderImage=document.getElementById('sliderImage');
+document.getElementById('prevImage').addEventListener('click',()=>{
+  currentImage=(currentImage-1+images.length)%images.length;
+  sliderImage.src=images[currentImage];
+});
+document.getElementById('nextImage').addEventListener('click',()=>{
+  currentImage=(currentImage+1)%images.length;
+  sliderImage.src=images[currentImage];
+});
+
+// POKAŻ WIĘCEJ OPINII
+const showMoreBtn=document.getElementById('showMoreBtn');
+const moreReviews=document.getElementById('moreReviews');
+showMoreBtn.addEventListener('click',()=>{
+  moreReviews.classList.toggle('review-hidden');
+  showMoreBtn.textContent = moreReviews.classList.contains('review-hidden') ? 'Pokaż więcej opinii' : 'Ukryj opinie';
+});
+
+// ZMIANA DOSTAWY
+const deliverySelect=document.getElementById('deliverySelect');
+const paczkomatInput=document.getElementById('paczkomatInput');
+deliverySelect.addEventListener('change',()=>{ paczkomatInput.style.display=deliverySelect.value==='inpost'?'block':'none'; });
+
+// TIMER PROMOCJI Z LOCALSTORAGE
+let promoEnd=localStorage.getItem('promoEnd');
+if(!promoEnd){ promoEnd=Date.now()+5*24*60*60*1000; localStorage.setItem('promoEnd', promoEnd); }
+const promoTimer=document.getElementById('promoTimer');
+setInterval(()=>{
+  const now=new Date();
+  const diff=promoEnd-now;
+  if(diff<=0){ promoTimer.textContent="Promocja zakończona!"; return; }
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+  promoTimer.textContent=`Promocja kończy się za: ${d}d ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+},1000);
+</script>
+</body>
+</html>
+
