@@ -64,7 +64,7 @@ body {
 .info-bar span {
   display: inline-block;
   padding-left: 100%;
-  animation: scroll-left 15s linear infinite;
+  animation: scroll-left 25s linear infinite; /* wolniejsze przewijanie */
 }
 @keyframes scroll-left {
   0% { transform: translateX(0); }
@@ -217,7 +217,6 @@ document.getElementById('prevImage').onclick=()=>{
 document.getElementById('nextImage').onclick=()=>{
   currentImage=(currentImage+1)%images.length; sliderImage.src=images[currentImage];
 };
-// Automatyczne przewijanie co 5s
 setInterval(()=>{
   currentImage=(currentImage+1)%images.length;
   sliderImage.src=images[currentImage];
