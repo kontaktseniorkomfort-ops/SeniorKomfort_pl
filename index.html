@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mata Akupresyjna z Poduszką – Komplet</title>
+<title>Mata Akupresyjna z Poduszką – Senior Komfort</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
@@ -23,7 +23,7 @@ body {
   position: relative;
 }
 .slider-btn {
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
   color: white;
   font-size: 2rem;
   padding: 0.5rem 1rem;
@@ -31,14 +31,10 @@ body {
   border-radius: 0.5rem;
   user-select: none;
   transition: background 0.3s;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   z-index: 10;
 }
-#prevImage { left: 0.5rem; }
-#nextImage { right: 0.5rem; }
-.slider-btn:hover { background: rgba(0,0,0,0.6); }
+.slider-btn:hover { background: rgba(0,0,0,0.7); }
+#sliderImage { z-index: 1; }
 
 /* Formularz */
 #orderForm input, #orderForm select, #orderForm textarea {
@@ -50,31 +46,33 @@ body {
   background-color: #16a34a;
   transition: background 0.3s;
 }
-#orderForm button:hover { background-color: #15803d; }
+#orderForm button:hover {
+  background-color: #15803d;
+}
 #paczkomatInput { display: none; }
 
-/* Pasek przesuwający się */
-#scrollingBar {
+/* Pasek info */
+.info-bar {
   background-color: #16a34a;
   color: white;
   overflow: hidden;
   white-space: nowrap;
-  font-weight: bold;
-  padding: 0.5rem 0;
   position: relative;
+  padding: 0.5rem 0;
+  font-weight: bold;
 }
-#scrollingBar span {
+.info-bar span {
   display: inline-block;
   padding-left: 100%;
-  animation: scroll 15s linear infinite;
+  animation: scroll-left 15s linear infinite;
 }
-@keyframes scroll {
-  0% { transform: translateX(0%); }
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
 
-/* Opinie */
-.review-hidden { display: none; }
+/* Licznik promocji */
+#countdown { font-weight: bold; color: #facc15; }
 </style>
 </head>
 
@@ -84,15 +82,15 @@ body {
 <section class="text-center py-6 bg-gray-800 bg-opacity-80 shadow-lg">
   <h1 class="text-3xl font-bold">Mata Akupresyjna z Poduszką – Komplet</h1>
   <p class="text-lg mt-2 text-green-300">🔥 Często kupowany produkt!</p>
-</section>
 
-<!-- PASEK PRZESUWANY Z EMOTKAMI -->
-<div id="scrollingBar">
-  <span>
-    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta! 
-    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta!
-  </span>
-</div>
+  <!-- Pasek info -->
+  <div class="info-bar mt-4">
+    <span>🚀 Szybka wysyłka do 24h! 💳 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🔥 Szybka wysyłka do 24h! 💳 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot!</span>
+  </div>
+
+  <!-- Licznik promocji -->
+  <p class="mt-2 text-yellow-400 text-lg">Promocja kończy się za: <span id="countdown">ładowanie...</span></p>
+</section>
 
 <!-- PRODUKT -->
 <section class="max-w-3xl mx-auto mt-6 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
@@ -104,10 +102,9 @@ body {
 
   <div class="mt-6 text-center">
     <p class="text-xl">
-      Cena: <span class="text-green-300 font-bold text-5xl">99,99 zł</span> <span class="line-through text-gray-400 text-2xl">129,99 zł</span>
+      Cena: <span class="text-green-300 font-bold text-5xl">99.99 zł</span>
     </p>
     <p class="text-sm text-gray-300 mt-1">Wysyłka za darmo: 📦 Poczta Polska lub 🚀 InPost</p>
-    <p id="promoTimer" class="text-yellow-400 font-bold mt-2 text-lg">Promocja kończy się za: 5d 00:00:00</p>
   </div>
 
   <button id="buyNowTop" class="w-full mt-6 py-4 bg-green-500 hover:bg-green-600 rounded-xl text-xl font-bold shadow-lg">Kup Teraz</button>
@@ -117,51 +114,14 @@ body {
 <section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg" id="reviews">
   <h2 class="text-2xl font-bold mb-4">Opinie naszych klientów ⭐</h2>
   <div class="space-y-4">
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Barbara 😊</p>
-      <p class="text-gray-300">Idealna dla osób w każdym wieku. Plecy mniej bolą już po kilku dniach 💆‍♀️.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Marian 😄</p>
-      <p class="text-gray-300">Używam wieczorem. Zasypiam szybciej i budzę się wypoczęty.</p>
-    </div>
-    <div class="bg-gray-700 p-4 rounded-xl">
-      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Helena 😊</p>
-      <p class="text-gray-300">Dostawa błyskawiczna i tylko przy odbiorze – super bezpieczeństwo.</p>
-    </div>
-
-    <!-- ukryte opinie -->
-    <div id="moreReviews" class="space-y-4 review-hidden">
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Andrzej 😊</p>
-        <p class="text-gray-300">Dobra jakość, używam codziennie.</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Zofia 😄</p>
-        <p class="text-gray-300">Szybka wysyłka, działa jak trzeba.</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Wiesław 😊</p>
-        <p class="text-gray-300">Żona też używa – oboje polecamy.</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Maria 😊</p>
-        <p class="text-gray-300">Bardzo wygodna mata, pomaga przy bólach pleców.</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Krzysztof 😄</p>
-        <p class="text-gray-300">Wysyłka szybka, produkt zgodny z opisem. Polecam!</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Aneta 😊</p>
-        <p class="text-gray-300">Mata bardzo wygodna, stosuję codziennie przed snem.</p>
-      </div>
-      <div class="bg-gray-700 p-4 rounded-xl">
-        <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Tomasz 😄</p>
-        <p class="text-gray-300">Super produkt, ból pleców znacząco się zmniejszył.</p>
-      </div>
-    </div>
-
+    <div class="bg-gray-700 p-4 rounded-xl review">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Barbara 😊<p class="text-gray-300">Idealna dla osób w każdym wieku. Plecy mniej bolą już po kilku dniach 💆‍♀️.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Marian 😄<p class="text-gray-300">Używam wieczorem. Zasypiam szybciej i budzę się wypoczęty.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Helena 😊<p class="text-gray-300">Dostawa błyskawiczna i tylko przy odbiorze – super bezpieczeństwo.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review hidden">⭐ ⭐ ⭐ ⭐ – Pan Andrzej 😊<p class="text-gray-300">Dobra jakość, używam codziennie.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review hidden">⭐ ⭐ ⭐ ⭐ – Pani Zofia 😄<p class="text-gray-300">Szybka wysyłka, działa jak trzeba.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review hidden">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Wiesław 😊<p class="text-gray-300">Żona też używa – oboje polecamy.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review hidden">⭐ ⭐ ⭐ ⭐ – Pani Maria 😊<p class="text-gray-300">Bardzo wygodna mata, pomaga przy bólach pleców.</p></div>
+    <div class="bg-gray-700 p-4 rounded-xl review hidden">⭐ ⭐ ⭐ ⭐ – Pan Krzysztof 😄<p class="text-gray-300">Wysyłka szybka, produkt zgodny z opisem. Polecam!</p></div>
     <button id="showMoreBtn" class="w-full mt-4 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold">Pokaż więcej opinii</button>
   </div>
 </section>
@@ -185,7 +145,9 @@ body {
 <!-- SEKCJA ZAUFANIA -->
 <section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
   <h2 class="text-2xl font-bold mb-4">Dlaczego warto nam zaufać? 🤝</h2>
-  <p class="text-gray-300">Jesteśmy sprzedawcą działającym w Polsce...</p>
+  <p class="text-gray-300">
+    Jesteśmy sprzedawcą działającym w Polsce. Każda paczka jest starannie zabezpieczona...
+  </p>
 </section>
 
 <!-- FAQ -->
@@ -240,52 +202,67 @@ body {
 </section>
 
 <script>
-// MODAL
+// Modal
 const modal=document.getElementById('modalOverlay');
-document.getElementById("buyNowTop").addEventListener('click',()=>modal.classList.remove("hidden"));
+document.getElementById("buyNowTop").onclick=()=>modal.classList.remove("hidden");
 function closeModal(){modal.classList.add("hidden");}
 
-// SLIDER
+// Slider
 const images=["mata z kolcami- produkt.png","rozmiary.png"];
 let currentImage=0;
 const sliderImage=document.getElementById('sliderImage');
-document.getElementById('prevImage').addEventListener('click',()=>{
-  currentImage=(currentImage-1+images.length)%images.length;
-  sliderImage.src=images[currentImage];
-});
-document.getElementById('nextImage').addEventListener('click',()=>{
+document.getElementById('prevImage').onclick=()=>{
+  currentImage=(currentImage-1+images.length)%images.length; sliderImage.src=images[currentImage];
+};
+document.getElementById('nextImage').onclick=()=>{
+  currentImage=(currentImage+1)%images.length; sliderImage.src=images[currentImage];
+};
+// Automatyczne przewijanie co 5s
+setInterval(()=>{
   currentImage=(currentImage+1)%images.length;
   sliderImage.src=images[currentImage];
+},5000);
+
+// Opinie
+const reviews=document.querySelectorAll('.review');
+reviews.forEach((r,i)=>{ if(i>2) r.classList.add('hidden'); });
+document.getElementById('showMoreBtn').addEventListener('click',()=>{
+  reviews.forEach(r=>r.classList.toggle('hidden'));
+  document.getElementById('showMoreBtn').textContent=reviews[3].classList.contains('hidden')?"Pokaż więcej opinii":"Ukryj opinie";
 });
 
-// POKAŻ WIĘCEJ OPINII
-const showMoreBtn=document.getElementById('showMoreBtn');
-const moreReviews=document.getElementById('moreReviews');
-showMoreBtn.addEventListener('click',()=>{
-  moreReviews.classList.toggle('review-hidden');
-  showMoreBtn.textContent = moreReviews.classList.contains('review-hidden') ? 'Pokaż więcej opinii' : 'Ukryj opinie';
-});
-
-// ZMIANA DOSTAWY
+// Formularz paczkomat
 const deliverySelect=document.getElementById('deliverySelect');
 const paczkomatInput=document.getElementById('paczkomatInput');
-deliverySelect.addEventListener('change',()=>{ paczkomatInput.style.display=deliverySelect.value==='inpost'?'block':'none'; });
+deliverySelect.addEventListener('change',()=>{
+  if(deliverySelect.value==='inpost'){paczkomatInput.style.display='block'; paczkomatInput.required=true;}
+  else {paczkomatInput.style.display='none'; paczkomatInput.required=false;}
+});
 
-// TIMER PROMOCJI Z LOCALSTORAGE
-let promoEnd=localStorage.getItem('promoEnd');
-if(!promoEnd){ promoEnd=Date.now()+5*24*60*60*1000; localStorage.setItem('promoEnd', promoEnd); }
-const promoTimer=document.getElementById('promoTimer');
-setInterval(()=>{
+// Licznik promocji
+const countdown=document.getElementById('countdown');
+const promoKey='promoEnd';
+let promoEnd=localStorage.getItem(promoKey);
+if(!promoEnd || new Date(promoEnd)<new Date()){
   const now=new Date();
-  const diff=promoEnd-now;
-  if(diff<=0){ promoTimer.textContent="Promocja zakończona!"; return; }
-  const d=Math.floor(diff/86400000);
-  const h=Math.floor((diff%86400000)/3600000);
-  const m=Math.floor((diff%3600000)/60000);
-  const s=Math.floor((diff%60000)/1000);
-  promoTimer.textContent=`Promocja kończy się za: ${d}d ${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-},1000);
+  promoEnd=new Date(now.getTime()+5*24*60*60*1000); // 5 dni
+  localStorage.setItem(promoKey,promoEnd);
+}else{
+  promoEnd=new Date(promoEnd);
+}
+function updateCountdown(){
+  const now=new Date();
+  let diff=Math.floor((promoEnd-now)/1000);
+  if(diff<0){ countdown.textContent='PROMOCJA ZAKOŃCZONA'; return; }
+  const d=Math.floor(diff/86400); diff%=86400;
+  const h=Math.floor(diff/3600); diff%=3600;
+  const m=Math.floor(diff/60); const s=diff%60;
+  countdown.textContent=`${d}d ${h}h ${m}m ${s}s`;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
 </script>
+
 </body>
 </html>
 
