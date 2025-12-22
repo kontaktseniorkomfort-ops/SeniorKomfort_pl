@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Mata Akupresyjna z Poduszką – Komplet</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+  background: url('tło strony.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Slider */
+.slider-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+}
+.slider-btn {
+  background: rgba(0,0,0,0.3);
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  user-select: none;
+  transition: background 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+#prevImage { left: 0.5rem; }
+#nextImage { right: 0.5rem; }
+.slider-btn:hover { background: rgba(0,0,0,0.6); }
+
+/* Formularz */
+#orderForm input, #orderForm select, #orderForm textarea {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+  color: #fff;
+}
+#orderForm button {
+  background-color: #16a34a;
+  transition: background 0.3s;
+}
+#orderForm button:hover {
+  background-color: #15803d;
+}
+#paczkomatInput { display: none; }
+
+/* Pasek przesuwający się */
+#scrollingBar {
+  background-color: #16a34a;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: bold;
+  padding: 0.5rem 0;
+}
+#scrollingBar span {
+  display: inline-block;
+  animation: scroll 15s linear infinite;
+}
+@keyframes scroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+</head>
+
+<body class="text-white pb-24">
+
+<!-- HEADER -->
+<section class="text-center py-6 bg-gray-800 bg-opacity-80 shadow-lg">
+  <h1 class="text-3xl font-bold">Mata Akupresyjna z Poduszką – Komplet</h1>
+  <p class="text-lg mt-2 text-green-300">🔥 Często kupowany produkt!</p>
+</section>
+
+<!-- PASEK PRZESUWANY Z EMOTKAMI -->
+<div id="scrollingBar">
+  <span>
+    🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta! 🚀 Szybka wysyłka do 24h! 💚 Bezpieczne zakupy za pobraniem! 🔄 14 dni na zwrot! 🌟 Super oferta!
+  </span>
+</div>
+
+<!-- PRODUKT -->
+<section class="max-w-3xl mx-auto mt-6 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
+  <div class="slider-wrapper">
+    <div id="prevImage" class="slider-btn">◀</div>
+    <img id="sliderImage" src="mata z kolcami- produkt.png" alt="Mata akupresyjna" class="w-96 rounded-xl shadow-xl object-cover" />
+    <div id="nextImage" class="slider-btn">▶</div>
+  </div>
+
+  <div class="mt-6 text-center">
+    <p class="text-xl">
+      Cena: <span class="text-green-300 font-bold text-5xl">99,99 zł</span> <span class="line-through text-gray-400 text-2xl">129,99 zł</span>
+    </p>
+    <p class="text-sm text-gray-300 mt-1">Wysyłka za darmo: 📦 Poczta Polska lub 🚀 InPost</p>
+    <p id="promoTimer" class="text-yellow-400 font-bold mt-2 text-lg">Promocja kończy się za: 5d 00:00:00</p>
+  </div>
+
+  <button id="buyNowTop" class="w-full mt-6 py-4 bg-green-500 hover:bg-green-600 rounded-xl text-xl font-bold shadow-lg">Kup Teraz</button>
+</section>
+
+<!-- OPINIE -->
+<section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg" id="reviews">
+  <h2 class="text-2xl font-bold mb-4">Opinie naszych klientów ⭐</h2>
+  <div class="space-y-4">
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Barbara 😊</p>
+      <p class="text-gray-300">Idealna dla osób w każdym wieku. Plecy mniej bolą już po kilku dniach 💆‍♀️.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Marian 😄</p>
+      <p class="text-gray-300">Używam wieczorem. Zasypiam szybciej i budzę się wypoczęty.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pani Helena 😊</p>
+      <p class="text-gray-300">Dostawa błyskawiczna i tylko przy odbiorze – super bezpieczeństwo.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Andrzej 😊</p>
+      <p class="text-gray-300">Dobra jakość, używam codziennie.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Zofia 😄</p>
+      <p class="text-gray-300">Szybka wysyłka, działa jak trzeba.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Wiesław 😊</p>
+      <p class="text-gray-300">Żona też używa – oboje polecamy.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Maria 😊</p>
+      <p class="text-gray-300">Bardzo wygodna mata, pomaga przy bólach pleców.</p>
+    </div>
+    <div class="bg-gray-700 p-4 rounded-xl">
+      <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pan Krzysztof 😄</p>
+      <p class="text-gray-300">Wysyłka szybka, produkt zgodny z opisem. Polecam!</p>
+    </div>
+    <button id="showMoreBtn" class="w-full mt-4 py-3 bg-green-600 hover:bg-green-700 rounded-lg font-bold">Pokaż więcej opinii</button>
+    <div id="moreReviews" class="hidden mt-4 space-y-4">
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ – Pani Aneta 😊</p>
+        <p class="text-gray-300">Mata bardzo wygodna, stosuję codziennie przed snem.</p>
+      </div>
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <p class="font-bold">⭐ ⭐ ⭐ ⭐ ⭐ – Pan Tomasz 😄</p>
+        <p class="text-gray-300">Super produkt, ból pleców znacząco się zmniejszył.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPIS PRODUKTU -->
+<section class="max-w-3xl mx-auto mt-6 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg text-gray-300 space-y-4">
+  <div class="text-center">
+    <img src="mata1.png" alt="Osoba relaksująca się na macie" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
+    <p>🌿 Mata akupresyjna jest idealna dla osób w każdym wieku, pomaga w relaksacji mięśni i poprawia krążenie. Regularne stosowanie może zmniejszyć napięcie w plecach oraz karku. Osoba leżąca na macie odczuwa przyjemne ciepło i delikatny ucisk, który stymuluje zakończenia nerwowe. Dzięki temu poprawia się samopoczucie, a codzienny stres zostaje złagodzony. Mata jest wykonana z wytrzymałych materiałów, zapewnia stabilność i bezpieczeństwo. Zastosowanie poduszki w zestawie odciąża szyję, co pozwala na pełny relaks. Nie wymaga użycia leków ani żadnych chemicznych preparatów. Zaleca się stosowanie 10-20 minut dziennie, najlepiej w spokojnym miejscu. Mata może być używana na podłodze lub łóżku, zawsze z zachowaniem ostrożności. 🌟</p>
+  </div>
+
+  <div class="text-center">
+    <img src="mata2.png" alt="Stopy na macie akupresyjnej" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
+    <p>💚 Stawianie stóp na macie aktywuje punkty refleksologiczne, co korzystnie wpływa na krążenie krwi i poprawia funkcjonowanie organów. Początkowo odczuwalny może być delikatny dyskomfort, który po kilku minutach staje się przyjemnym uczuciem masażu. Mata wspomaga redukcję napięcia mięśniowego w stopach i całym ciele. Dzięki regularnemu używaniu zwiększa elastyczność mięśni i przyspiesza regenerację po wysiłku. Zaleca się stosowanie na boso lub w cienkich skarpetach. Mata jest łatwa w utrzymaniu czystości i nie wymaga specjalnych akcesoriów. Można ją stosować zarówno rano, aby pobudzić ciało, jak i wieczorem dla relaksu. Mata jest bezpieczna, jeśli używana zgodnie z instrukcją. 🚶‍♀️</p>
+  </div>
+
+  <div class="text-center">
+    <img src="mata3.png" alt="Kolce maty akupresyjnej z bliska" class="w-96 rounded-xl shadow-lg mx-auto mb-2" />
+    <p>🔵 Kolce maty są wykonane z bezpiecznego tworzywa ABS i zostały zaprojektowane tak, aby stymulować skórę bez ryzyka zranienia. Delikatny nacisk poprawia ukrwienie i sprzyja uwalnianiu endorfin. Mata może być używana przez osoby w każdym wieku, z wyjątkiem przeciwwskazań medycznych takich jak otwarte rany lub choroby skóry. Przy pierwszym użyciu zaleca się krótkie sesje, stopniowo wydłużając czas korzystania. Kolce są rozmieszczone równomiernie, zapewniając równomierną stymulację. Mata jest łatwa w przechowywaniu i można ją zabrać w podróż. Dzięki niej codzienna rutyna staje się przyjemniejsza i relaksująca. Stosowanie maty może wspomóc redukcję stresu i poprawić jakość snu. 🌟</p>
+  </div>
+</section>
+
+<!-- SEKCJA ZAUFANIA -->
+<section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Dlaczego warto nam zaufać? 🤝</h2>
+  <p class="text-gray-300">
+    Jesteśmy sprzedawcą działającym w Polsce. Każda paczka jest starannie zabezpieczona, a płatność odbywa się dopiero przy odbiorze. 
+    Email 📧: <strong>kontakt.seniorkomfort@gmail.com</strong>
+  </p>
+</section>
+
+<!-- FAQ -->
+<section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Najczęstsze pytania ❓</h2>
+  <div class="space-y-2 text-gray-300">
+    <p class="font-bold">Czy mata pomaga na ból pleców? 💪</p>
+    <p>Tak, poprawia ukrwienie i rozluźnia mięśnie 👍.</p>
+
+    <p class="font-bold">Czy korzystanie boli? 😅</p>
+    <p>Początkowo lekko kłuje, potem jest przyjemnie 😌.</p>
+
+    <p class="font-bold">Jak wygląda wysyłka? 📦</p>
+    <p>Wysyłka Poczta Polska lub InPost, płatność przy odbiorze.</p>
+  </div>
+</section>
+
+<!-- MODAL ZAMÓWIENIA -->
+<div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+  <div class="bg-gray-800 w-full max-w-lg p-6 rounded-xl shadow-2xl relative">
+    <button onclick="closeModal()" class="absolute top-3 right-3 text-white text-2xl font-bold">×</button>
+    <h2 class="text-2xl font-bold text-center mb-4">Formularz zamówienia</h2>
+    <form id="orderForm" class="grid gap-3" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="2f75a0fb-95b0-4c5f-9299-82d495a43038">
+      <input type="hidden" name="subject" value="Nowe zamówienie - Mata Akupresyjna">
+      <input type="hidden" name="redirect" value="https://TWOJE_KONTO.github.io/senior-komfort/thanks.html">
+      <input name="imie" required class="p-3 rounded w-full" placeholder="Imię"/>
+      <input name="nazwisko" required class="p-3 rounded w-full" placeholder="Nazwisko"/>
+      <input name="telefon" required class="p-3 rounded w-full" placeholder="Telefon"/>
+      <input name="email" required type="email" class="p-3 rounded w-full" placeholder="Email"/>
+      <input name="ulica" required class="p-3 rounded w-full" placeholder="Ulica"/>
+      <input name="numer" required class="p-3 rounded w-full" placeholder="Numer domu/mieszkania"/>
+      <input name="kod" required class="p-3 rounded w-full" placeholder="Kod pocztowy"/>
+      <input name="miejscowosc" required class="p-3 rounded w-full" placeholder="Miejscowość"/>
+      <select id="deliverySelect" name="sposob_dostawy" class="p-3 rounded w-full" required>
+        <option value="" disabled selected>Wybierz sposób dostawy</option>
+        <option value="poczta_pol">Poczta Polska – do domu</option>
+        <option value="inpost">InPost – paczkomat</option>
+      </select>
+      <input type="text" name="nr_paczkomatu" id="paczkomatInput" class="p-3 rounded w-full" placeholder="Numer paczkomatu">
+      <textarea name="uwagi" class="p-3 rounded w-full" placeholder="Uwagi do zamówienia"></textarea>
+      <label class="text-sm text-gray-300">
+        <input type="checkbox" required> Wyrażam zgodę na przetwarzanie danych osobowych w celu realizacji zamówienia.
+      </label>
+      <button class="w-full mt-3 py-3 rounded-xl font-bold">Wyślij zamówienie — płatność przy odbiorze</button>
+    </form>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<section class="max-w-3xl mx-auto mt-10 p-4 bg-gray-800 bg-opacity-80 rounded-xl shadow-lg">
+  <h2 class="text-2xl font-bold mb-4">Kontakt 📧</h2>
+  <p class="text-gray-300">Email: <strong>kontakt.seniorkomfort@gmail.com</strong></p>
+</section>
+
+<script>
+// MODAL
+const modal=document.getElementById('
