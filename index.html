@@ -64,7 +64,7 @@ body {
 .info-bar span {
   display: inline-block;
   padding-left: 100%;
-  animation: scroll-left 25s linear infinite; /* wolniejsze przewijanie */
+  animation: scroll-left 30s linear infinite; /* wolniejsze przewijanie */
 }
 @keyframes scroll-left {
   0% { transform: translateX(0); }
@@ -207,7 +207,7 @@ const modal=document.getElementById('modalOverlay');
 document.getElementById("buyNowTop").onclick=()=>modal.classList.remove("hidden");
 function closeModal(){modal.classList.add("hidden");}
 
-// Slider
+// Slider tylko przyciski
 const images=["mata z kolcami- produkt.png","rozmiary.png"];
 let currentImage=0;
 const sliderImage=document.getElementById('sliderImage');
@@ -217,10 +217,6 @@ document.getElementById('prevImage').onclick=()=>{
 document.getElementById('nextImage').onclick=()=>{
   currentImage=(currentImage+1)%images.length; sliderImage.src=images[currentImage];
 };
-setInterval(()=>{
-  currentImage=(currentImage+1)%images.length;
-  sliderImage.src=images[currentImage];
-},5000);
 
 // Opinie
 const reviews=document.querySelectorAll('.review');
@@ -238,7 +234,7 @@ deliverySelect.addEventListener('change',()=>{
   else {paczkomatInput.style.display='none'; paczkomatInput.required=false;}
 });
 
-// Licznik promocji
+// Licznik promocji poprawiony
 const countdown=document.getElementById('countdown');
 const promoKey='promoEnd';
 let promoEnd=localStorage.getItem(promoKey);
@@ -264,4 +260,3 @@ setInterval(updateCountdown,1000);
 
 </body>
 </html>
-
